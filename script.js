@@ -8,12 +8,17 @@ const img = document.querySelector("#character")
 
 let x = 0
 let y = 0
+let pos = 0
 
 function animationLoop () {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-    ctx.drawImage(img, x, y, canvas.width, canvas.height)
-
+    ctx.drawImage(img,
+        32, 0, 32, 32,
+        x, y, canvas.width, canvas.height)
+        
+        
+    
     window.requestAnimationFrame(animationLoop)
 }
 
@@ -30,6 +35,11 @@ function pickMapTile(x, y, tileType) {
     else if (tileType === "s") { drawTileOnMap(1, 0, x, y) }
     else if (tileType === "p") { drawTileOnMap(2, 0, x, y) }
     else if (tileType === "f") { drawTileOnMap(3, 0, x, y) }
+    else if (tileType === "t") { drawTileOnMap(0, 1, x, y) }
+    else if (tileType === "b") { drawTileOnMap(1, 1, x, y) }
+    else if (tileType === "h") { drawTileOnMap(2, 1, x, y) }
+    else if (tileType === "l") { drawTileOnMap(3, 1, x, y) }
+
 
 }
 
